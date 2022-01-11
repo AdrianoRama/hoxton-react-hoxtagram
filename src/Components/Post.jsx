@@ -1,4 +1,4 @@
-
+import './Post.css'
 
 function Post(props) {
     return <section className="image-container">

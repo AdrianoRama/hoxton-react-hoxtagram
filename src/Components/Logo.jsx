@@ -1,4 +1,5 @@
 import '../App.css'
+import './Logo.css'
 
 
 function Logo() {
