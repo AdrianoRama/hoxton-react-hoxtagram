@@ -1,21 +1,24 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Logo from './Components/Logo'
-import Post from './Components/Post'
+import Posts from './Components/Posts'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [posts, setPost] = useState([])
+
+  useEffect(() => {
+    fetch(`http://localhost:8000/images`).then(resp => resp.json())
+      .then(posts => setPost(posts))
+  }, [])
+
+
 
   return (
     <div className="App">
       <Logo />
 
+      <Posts posts={posts} />
 
-      <section className="image-container">
-
-
-        <Post />
-      </section>
     </div>
   )
 }
