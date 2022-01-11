@@ -1,9 +1,17 @@
-import Post from "./Post";
+import Post from './Post'
+import './Post.css'
+
+
 
 
 
 function Posts(props) {
-    return <Post post={props.post} posts={props.posts} />
+
+    const posts = props.posts
+
+    return posts.map((post) => {
+        return <Post post={post} />
+    })
 
 
 }

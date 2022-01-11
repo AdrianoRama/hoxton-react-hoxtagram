@@ -8,16 +8,17 @@ function App() {
 
   useEffect(() => {
     fetch(`http://localhost:8000/images`).then(resp => resp.json())
-      .then(posts => setPost(posts))
+      .then(postsFromServer => setPost(postsFromServer))
   }, [])
-
-
 
   return (
     <div className="App">
       <Logo />
+      <section className="image-container">
+        <Posts posts={posts} />
 
-      <Posts posts={posts} />
+      </section>
+
 
     </div>
   )
