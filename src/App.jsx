@@ -11,11 +11,26 @@ function App() {
       .then(postsFromServer => setPost(postsFromServer))
   }, [])
 
+  function plusLikes(post) {
+    const updatedImages = JSON.parse(JSON.stringify(posts))
+    const match = updatedImages.find(target => target.id === post.id)
+    match.likes++
+    setPost(updatedImages)
+
+    return fetch(`http://localhost:8000/images/${post.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(post.likes + 1)
+    })
+  }
+
   return (
     <div className="App">
       <Logo />
       <section className="image-container">
-        <Posts posts={posts} />
+        <Posts posts={posts} plusLikes={plusLikes} />
 
       </section>
 

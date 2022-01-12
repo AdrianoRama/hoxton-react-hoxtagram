@@ -9,10 +9,10 @@ function Post(props) {
         <img src={post.image} className="image" />
         <div className="likes-section">
             <span className="likes">{post.likes} likes</span>
-            <button className="like-button">♥</button>
+            <button className="like-button" onClick={() => props.plusLikes(post)}>♥</button>
         </div>
         <ul className="comments">
-            <Comments comments={post.comments} />
+            <Comments comments={post.comments} plusLikes={props.plusLikes} />
         </ul>
     </article>)
 

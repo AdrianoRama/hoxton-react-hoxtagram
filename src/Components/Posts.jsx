@@ -10,7 +10,7 @@ function Posts(props) {
     const posts = props.posts
 
     return posts.map((post) => {
-        return <Post post={post} />
+        return <Post post={post} plusLikes={props.plusLikes} />
     })
 
 
